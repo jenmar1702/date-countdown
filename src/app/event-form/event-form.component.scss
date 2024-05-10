@@ -1,0 +1,57 @@
+.form-group {
+  position: relative;
+}
+
+.form-group label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 2px;
+  z-index: 1;
+}
+
+.form-group label:after {
+  content: ' ';
+  background-color: #f5f3f3;
+  height: 20px;
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: 0;
+  z-index: -1;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  box-shadow: none !important;
+}
+
+input {
+  background: #f5f3f3;
+  border-radius: 4px;
+  border: 1px solid #757575;
+  font-family: 'Open Sauce One', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  height: 54px;
+  line-height: 21px;
+  margin: 24px 0;
+  padding: 0 12px;
+  text-align: left;
+  width: 278px;
+}
+
+@media (min-width: 720px) {
+  form {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 586px;
+  }
+}

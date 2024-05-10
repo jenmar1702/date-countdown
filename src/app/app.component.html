@@ -1,0 +1,11 @@
+<main>
+  <div class="container">
+    <h1 class="no-wrap event-name" textFit [content]="eventName">Time to {{ eventName }}</h1>
+    <h2 class="no-wrap event-countdown" textFit [content]="countdownText">{{ countdownText }}</h2>
+  </div>
+  <app-event-form
+    [eventName]="eventName"
+    [eventDate]="eventDate"
+    (onFormGroupChange)="onFormGroupChangeEvent($event)"
+  />
+</main>
