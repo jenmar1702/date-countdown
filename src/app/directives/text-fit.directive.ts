@@ -42,7 +42,7 @@ export class TextFitDirective implements AfterViewInit, OnChanges {
 
   ngOnChanges(changes: any): void {
     if (changes.content) {
-      this.ngAfterViewInit()
+      this.setFontSize()
     }
   }
 
@@ -62,7 +62,7 @@ export class TextFitDirective implements AfterViewInit, OnChanges {
     this.setStyle(fontSize, 'block')
   }
 
-  setStyle(fontSize: number, display: string) {
+  setStyle(fontSize: number, display: string): void {
     this.renderer.setStyle(this.element, 'font-size', `${fontSize}px`)
     this.renderer.setStyle(this.element, 'display', display)
   }

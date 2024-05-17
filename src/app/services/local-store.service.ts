@@ -8,22 +8,12 @@ export class LocalStoreService {
   private readonly eventDateKey = 'eventDate'
 
   getEventName(): string | null {
-    try {
-      return localStorage.getItem(this.eventNameKey)
-    } catch (error) {
-      console.error('Error retrieving event name from local storage:', error)
-      return null
-    }
+    return localStorage.getItem(this.eventNameKey)
   }
 
   getEventDate(): Date | null {
-    try {
-      const storedDate = localStorage.getItem(this.eventDateKey)
-      return storedDate ? new Date(storedDate) : null
-    } catch (error) {
-      console.error('Error retrieving event date from local storage:', error)
-      return null
-    }
+    const storedDate = localStorage.getItem(this.eventDateKey)
+    return storedDate ? new Date(storedDate) : null
   }
 
   setEventName(value: string): void {

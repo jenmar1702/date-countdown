@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core'
-import { EventFormComponent } from './event-form/event-form.component'
+import { Component, OnDestroy, OnInit } from '@angular/core'
+import { EventFormComponent } from './components/event-form/event-form.component'
 import { TextFitDirective } from './directives/text-fit.directive'
 import { LocalStoreService } from './services/local-store.service'
 import { TimeService } from './services/time.service'
@@ -12,7 +12,7 @@ import { Subscription, interval } from 'rxjs'
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   countdownText = ''
   eventName = this.localStoreService.getEventName() ?? 'Midsummer Eve'
   eventDate = this.localStoreService.getEventDate() ?? new Date('2024-06-22')
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     this.stopCountdown()
   }
 
-  public onFormGroupChangeEvent(formData: { name: string; date: Date }) {
+  onFormGroupChangeEvent(formData: { name: string; date: Date }): void {
     this.eventName = formData.name
     this.eventDate = formData.date
     this.startCountdown()
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
     })
   }
 
-  private setCountdownText() {
+  private setCountdownText(): void {
     const now = new Date()
     const timeDiff = new Date(this.eventDate).getTime() - now.getTime()
 

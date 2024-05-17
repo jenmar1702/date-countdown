@@ -4,10 +4,10 @@ import { Injectable } from '@angular/core'
   providedIn: 'root',
 })
 export class TimeService {
-  readonly milliSecondsInASecond = 1000
-  readonly secondsInAMinute = 60
-  readonly minutesInAnHour = 60
-  readonly hoursInADay = 24
+  private readonly milliSecondsInASecond = 1000
+  private readonly secondsInAMinute = 60
+  private readonly minutesInAnHour = 60
+  private readonly hoursInADay = 24
 
   displayCountDown(days: number, hours: number, minutes: number, seconds: number): string {
     return `${days} days, ${hours} h, ${minutes} m, ${seconds} s`
